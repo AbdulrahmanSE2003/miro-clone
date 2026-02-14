@@ -3,8 +3,9 @@
 @import "shadcn/tailwind.css";
 
 html,
+body,
 body:root {
-  height: 100%;
+  min-height: 100vh;
 }
 
 @custom-variant dark (&:is(.dark *));
