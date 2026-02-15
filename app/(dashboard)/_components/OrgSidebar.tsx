@@ -12,7 +12,7 @@ const OrgSidebar = () => {
   const favorites = searchparams.get("favorites");
   return (
     <div
-      className={`hidden min-h-screen lg:flex flex-col space-y-6 w-51.75 p-4 py-6 border-r border-zinc-300`}
+      className={`hidden min-h-screen lg:flex flex-col space-y-6 w-51.75 p-4 py-6 border-r border-zinc-400/40`}
     >
       <Link href={"/"}>
         <div className={`flex items-center justify-start gap-3`}>

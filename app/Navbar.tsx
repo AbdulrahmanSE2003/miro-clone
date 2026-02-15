@@ -12,9 +12,7 @@ const Navbar = () => {
   const { organization } = useOrganization();
 
   return (
-    <nav
-      className={`flex items-center gap-x-4 p-5 py-4 border border-zinc-400/40 border-l-0`}
-    >
+    <div className={`flex items-center gap-x-4 p-5`}>
       <div className={`hidden lg:flex lg:flex-1`}>
         <SearchInput />
       </div>
@@ -44,7 +42,7 @@ const Navbar = () => {
       </div>
       {organization && <InviteButton />}
       <UserButton />
-    </nav>
+    </div>
   );
 };
 

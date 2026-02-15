@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }: LayoutProps) => {
     <main className={`min-h-screen`}>
       <Sidebar />
       <div className={`pl-15 h-full`}>
-        <div className={`flex h-full gap-x-3`}>
+        <div className={`flex h-full`}>
           <OrgSidebar />
           <div className={`h-full flex-1`}>
             {/* Add Navbar */}

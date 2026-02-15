@@ -1,6 +1,6 @@
 const page = () => {
   return (
-    <div className={`flex flex-col gap-y-4`}>
+    <div className={`flex flex-col gap-y-4 p-5`}>
       <p>Dashboard Root</p>
     </div>
   );
