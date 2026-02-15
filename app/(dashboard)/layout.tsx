@@ -9,12 +9,12 @@ interface LayoutProps {
 
 const DashboardLayout = ({ children }: LayoutProps) => {
   return (
-    <main className={`min-h-screen`}>
+    <main className={`h-screen`}>
       <Sidebar />
-      <div className={`pl-15 h-full`}>
+      <div className={`pl-15 h-full flex-1`}>
         <div className={`flex h-full`}>
           <OrgSidebar />
-          <div className={`h-full flex-1`}>
+          <div className={`h-full flex flex-col flex-1 min-h-screen`}>
             {/* Add Navbar */}
             <Navbar />
             {children}
