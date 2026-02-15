@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const DashboardLayout = ({ children }: LayoutProps) => {
   return (
-    <main className={`h-full`}>
+    <main className={`min-h-screen`}>
       <Sidebar />
       <div className={`pl-15 h-full`}>
         <div className={`flex h-full gap-x-3`}>

@@ -4,7 +4,6 @@ import Hint from "@/components/Hint";
 import { cn } from "@/lib/utils";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import Image from "next/image";
-import { useEffect } from "react";
 
 interface ItemProps {
   id: string;

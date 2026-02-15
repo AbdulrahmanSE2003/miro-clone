@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Spinner } from "../ui/spinner";
 
 const Loading = () => {
