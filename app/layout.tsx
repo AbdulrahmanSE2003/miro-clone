@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/providers/convex-client-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,6 +27,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ConvexClientProvider>
+          <Toaster position="bottom-right" />
           <TooltipProvider>{children}</TooltipProvider>
         </ConvexClientProvider>
       </body>
