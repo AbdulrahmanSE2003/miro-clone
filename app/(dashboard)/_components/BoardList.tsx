@@ -33,7 +33,6 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
         </div>
       </div>
     );
-  console.log(data);
 
   if (!data?.length && query.search) return <EmptySearch />;
 

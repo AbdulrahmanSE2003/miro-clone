@@ -27,8 +27,7 @@ export const create = mutation({
       throw new Error("Unauthorized");
     }
 
-    const randomImage = Math.floor(Math.random() * images.length);
-    console.log(randomImage);
+    const randomImage = Math.floor(Math.random() * images.length + 1);
 
     const board = await ctx.db.insert("boards", {
       title: args.title,
@@ -39,5 +38,19 @@ export const create = mutation({
     });
 
     return board;
+  },
+});
+
+export const remove = mutation({
+  args: { id: v.id("boards") },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Unauthorized");
+    }
+
+    // TODO: check to delete favorite relations later
+    await ctx.db.delete(args.id);
   },
 });

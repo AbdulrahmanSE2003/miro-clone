@@ -27,7 +27,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ConvexClientProvider>
-          <Toaster position="bottom-right" />
+          <Toaster position="bottom-right" richColors />
           <TooltipProvider>{children}</TooltipProvider>
         </ConvexClientProvider>
       </body>
