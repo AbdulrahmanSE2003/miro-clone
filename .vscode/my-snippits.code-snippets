@@ -1,0 +1,74 @@
+{
+	"Print to console": {
+		"prefix": "cl",
+		"scope": "javascript,typescript,javascriptreact",
+		"body": [
+			"console.log($1)"
+		],
+		"description": "console.log"
+	},
+	"reactComponent": {
+		"prefix": "rfc",
+		"scope": "javascript,typescript,javascriptreact",
+		"body": [
+			"function ${1:${TM_FILENAME_BASE}}() {",
+			"\treturn (",
+			"\t\t<div>",
+			"\t\t\t$0",
+			"\t\t</div>",
+			"\t)",
+			"}",
+			"",
+			"export default ${1:${TM_FILENAME_BASE}}",
+			""
+		],
+		"description": "React component"
+	},
+	"reactArrowComponent": {
+		"prefix": "rac",
+		"scope": "javascript,typescript,javascriptreact, typescriptreact",
+		"body": [
+			"const ${1:${TM_FILENAME_BASE}} = () => {",
+			"\treturn (",
+			"\t\t<div>",
+			"\t\t\t$0 ${1:${TM_FILENAME_BASE}}",
+			"\t\t</div>",
+			"\t)",
+			"}",
+			"",
+			"export default ${1:${TM_FILENAME_BASE}}",
+			""
+		],
+		"description": "React component"
+	},
+	"useState": {
+		"prefix": "mst",
+		"scope": "javascript,typescript,javascriptreact",
+		"body": [
+			"const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:null})"
+		],
+		"description": "my use state snippet"
+	},
+	"ClassName with Template": {
+		"prefix": "cnt",
+		"body": [
+			"className={`$1`}"
+		],
+		"description": "Add className with template literals"
+	},
+	"Use Client": {
+		"prefix": "uc",
+		"body": "\"use client\"",
+		"description": "Use client prefix shortcut"
+	},
+	"typescriptType": {
+		"prefix": "tt",
+		"scope": "typescript,typescriptreact",
+		"body": [
+			"type ${1:${TM_FILENAME_BASE}Props} = {",
+			"\t$0",
+			"}"
+		],
+		"description": "TypeScript type definition"
+	}
+}

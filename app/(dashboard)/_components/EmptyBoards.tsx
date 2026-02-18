@@ -27,7 +27,7 @@ const EmptyBoards = () => {
 
   return (
     <div className={`h-full  flex-center flex-col gap-y-5`}>
-      <Image src={"/design.svg"} height={360} width={360} alt="Empty Search" />
+      <Image src={"/design.svg"} height={360} width={360} alt="Empty org" />
       <h2 className={`text-2xl font-semibold `}>Create your first board.</h2>
       <p className={`text-muted-foreground text-sm `}>
         Start by creating a board for your organization.
