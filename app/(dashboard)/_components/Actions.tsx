@@ -3,16 +3,18 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ReactNode } from "react";
 import { DropdownMenuContentProps } from "@radix-ui/react-dropdown-menu";
-import { Link2, Trash2 } from "lucide-react";
+import { Edit, Link2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useApiMutation } from "@/app/hooks/useApiMutation";
 import { api } from "@/convex/_generated/api";
 import { ConfirmModal } from "./ConfirmModal";
 import { Button } from "@/components/ui/button";
+import { useRenameModal } from "@/store/useRename";
 
 type ActionsProps = {
   children: ReactNode;
@@ -23,6 +25,7 @@ type ActionsProps = {
 };
 
 const Actions = ({ id, side, sideOffset, children, title }: ActionsProps) => {
+  const { onOpen } = useRenameModal();
   const { mutate, pending } = useApiMutation(api.board.remove);
 
   const onCopyLink = () => {
@@ -43,6 +46,7 @@ const Actions = ({ id, side, sideOffset, children, title }: ActionsProps) => {
         toast.error("Failed to delete board");
       });
   };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
@@ -59,13 +63,21 @@ const Actions = ({ id, side, sideOffset, children, title }: ActionsProps) => {
           <Link2 className={`h-4 w-4 mr-2 `} />
           Copy board link
         </DropdownMenuItem>
-
+        <DropdownMenuItem
+          className={`cursor-pointer p-3 text-xs`}
+          onClick={() => onOpen(id, title)}
+        >
+          <Edit className={`h-4 w-4 mr-2 `} />
+          Edit board title
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         <ConfirmModal
           header="delete board?"
           desc={`Are you sure you want to delete the board "${title}"? This action cannot be undone.`}
           onConfirm={onDeleteBoard}
         >
           <Button
+            disabled={pending}
             variant="ghost"
             className={`p-3 text-red-500 hover:text-red-500 cursor-pointer text-sm font-normal w-full justify-start`}
           >

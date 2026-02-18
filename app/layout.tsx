@@ -4,6 +4,7 @@ import "./globals.css";
 import { ConvexClientProvider } from "@/providers/convex-client-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "sonner";
+import ModalProvider from "@/providers/ModalProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,6 +28,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ConvexClientProvider>
+          <ModalProvider />
           <Toaster position="bottom-right" richColors />
           <TooltipProvider>{children}</TooltipProvider>
         </ConvexClientProvider>
