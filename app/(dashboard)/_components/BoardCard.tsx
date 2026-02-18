@@ -33,7 +33,7 @@ const BoardCard = ({
   const createdAtLabel = formatDistanceToNow(createdAt, {
     addSuffix: true,
   });
-
+  console.log(imageUrl);
   return (
     <Link href={`board/${id}`}>
       <div
