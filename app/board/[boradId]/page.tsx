@@ -1,6 +1,13 @@
+import Canvas from "./_components/Canvas";
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+type pageProps = {
+  params: {
+    boardId: string;
+  };
+};
+
+const BoardIdPage = ({ params }: pageProps) => {
+  return <Canvas boardId={params.boardId} />;
+};
+
+export default BoardIdPage;
