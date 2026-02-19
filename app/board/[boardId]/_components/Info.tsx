@@ -47,15 +47,15 @@ const Info = ({ boardId }: InfoProps) => {
           variant={"board"}
           className={`px-2 transition-colors duration-300`}
         >
-          <Link href={"/"} className={`flex-center gap-2`}>
+          <Link href={"/"} className={`flex-center`}>
             <Image src={"/logo.png"} alt="Board Logo" width={30} height={30} />
 
             <span
-              className={
-                (cn("font-semibold text-2xl ml-2 text-black"), font.className)
-              }
+              className={cn(
+                "font-semibold text-lg tracking-wide ml-2 text-black",
+              )}
             >
-              Board
+              Miro
             </span>
           </Link>
         </Button>

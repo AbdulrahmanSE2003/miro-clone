@@ -8,7 +8,7 @@ type ToolButtonProps = {
   label: string;
   icon: LucideIcon;
   onClick: () => void;
-  isActive: boolean;
+  isActive?: boolean;
   isDisabled: boolean;
 };
 
