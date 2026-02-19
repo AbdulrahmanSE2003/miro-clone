@@ -22,3 +22,11 @@ const Toolbar = () => {
 };
 
 export default Toolbar;
+
+Toolbar.Skeleton = function ToolbarSkeleton() {
+  return (
+    <div
+      className={`absolute top-1/2 left-2 w-13 h-90 bg-white rounded-md -translate-y-1/2 flex flex-col gap-y-4 shadow-md`}
+    ></div>
+  );
+};
