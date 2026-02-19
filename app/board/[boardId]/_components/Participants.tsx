@@ -2,6 +2,7 @@
 
 import { useOthers, useSelf } from "@liveblocks/react";
 import UserAvatar from "./UserAvatar";
+import { connectionIdToColor } from "@/lib/utils";
 
 const MAX_SHOWN_USERS = 3;
 
@@ -18,6 +19,7 @@ const Participants = () => {
       {users.slice(0, MAX_SHOWN_USERS).map(({ connectionId, info }) => {
         return (
           <UserAvatar
+            borderColor={connectionIdToColor(connectionId)}
             key={connectionId}
             src={info?.avatar}
             name={info?.name}
@@ -28,6 +30,7 @@ const Participants = () => {
 
       {currentUser && (
         <UserAvatar
+          borderColor={connectionIdToColor(currentUser.connectionId)}
           src={`${currentUser.info?.avatar}`}
           name={`${currentUser.info?.name} (You)`}
           fallback={currentUser.info?.name?.[0] || "Y"}
