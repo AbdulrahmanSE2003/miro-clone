@@ -5,16 +5,17 @@ import { createClient } from "@liveblocks/client";
 import { createRoomContext } from "@liveblocks/react";
 
 const client = createClient({
+  throttle: 16,
   authEndpoint: "/api/liveblocks-auth",
 });
 
 declare global {
   interface Liveblocks {
     // Each user's Presence, for useMyPresence, useOthers, etc.
-    // Presence: {
-    //   // Example, real-time cursor coordinates
-    //   cursor: { null};
-    // };
+    Presence: {
+      // Example, real-time cursor coordinates
+      cursor: { x: number; y: number } | null;
+    };
 
     // The Storage tree for the room, for useMutation, useStorage, etc.
     // Storage: {
