@@ -12,8 +12,7 @@ const Page = async ({ params }: pageProps) => {
   const { boardId } = await params;
   return (
     <Room roomId={boardId} fallback={<Loading />}>
-      {/* <Canvas boardId={boardId} /> */}
-      <Loading />
+      <Canvas boardId={boardId} />
     </Room>
   );
 };

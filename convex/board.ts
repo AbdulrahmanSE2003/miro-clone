@@ -1,6 +1,6 @@
 import { v } from "convex/values";
 
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 
 const images = [
   "/placeholder/1.svg",
@@ -52,14 +52,14 @@ export const remove = mutation({
 
     const userId = identity.subject;
 
-    const existingFavorite = await ctx.db.query('userFavorites')
+    const existingFavorite = await ctx.db
+      .query("userFavorites")
       .withIndex("by_user_board", (q) =>
-        q
-          .eq("userId", userId)
-          .eq("boardId", args.id)
-        ).unique()
+        q.eq("userId", userId).eq("boardId", args.id),
+      )
+      .unique();
 
-    if (existingFavorite)await ctx.db.delete(existingFavorite._id)
+    if (existingFavorite) await ctx.db.delete(existingFavorite._id);
 
     // TODO: check to delete favorite relations later
     await ctx.db.delete(args.id);
@@ -92,7 +92,6 @@ export const update = mutation({
   },
 });
 
-
 export const favorite = mutation({
   args: { id: v.id("boards"), orgId: v.string() },
   handler: async (ctx, args) => {
@@ -113,15 +112,13 @@ export const favorite = mutation({
     const existingFavorite = await ctx.db
       .query("userFavorites")
       .withIndex("by_user_board", (q) =>
-        q
-          .eq("userId", userId)
-          .eq("boardId", board._id)
+        q.eq("userId", userId).eq("boardId", board._id),
       )
       .unique();
 
     if (existingFavorite) {
       throw new Error("Board already favorited");
-    } 
+    }
     await ctx.db.insert("userFavorites", {
       userId,
       boardId: board._id,
@@ -152,18 +149,25 @@ export const unFavorite = mutation({
     const existingFavorite = await ctx.db
       .query("userFavorites")
       .withIndex("by_user_board", (q) =>
-        q
-          .eq("userId", userId)
-          .eq("boardId", board._id)
+        q.eq("userId", userId).eq("boardId", board._id),
       )
       .unique();
 
     if (!existingFavorite) {
       throw new Error("Favorited board not found");
-    } 
-    await ctx.db.delete(existingFavorite._id)
+    }
+    await ctx.db.delete(existingFavorite._id);
 
-    return board;  
+    return board;
     // TODO remove thisand test
+  },
+});
+
+export const get = query({
+  args: { id: v.id("boards") },
+  handler: async (ctx, args) => {
+    const board = ctx.db.get(args.id);
+
+    return board;
   },
 });
