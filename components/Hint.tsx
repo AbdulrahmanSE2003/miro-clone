@@ -17,8 +17,8 @@ interface HintProps {
 const Hint = ({
   children,
   label,
-  side,
-  sideOffset,
+  side = "bottom",
+  sideOffset = 10,
   align,
   alignOffset,
 }: HintProps) => {
