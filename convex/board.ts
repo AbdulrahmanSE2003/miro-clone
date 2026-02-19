@@ -62,6 +62,7 @@ export const remove = mutation({
     if (existingFavorite) await ctx.db.delete(existingFavorite._id);
 
     // TODO: check to delete favorite relations later
+
     await ctx.db.delete(args.id);
   },
 });
