@@ -34,13 +34,16 @@ importers:
         version: 1.31.7(@clerk/clerk-react@5.60.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)
       convex-helpers:
         specifier: ^0.1.112
-        version: 0.1.112(convex@1.31.7(@clerk/clerk-react@5.60.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3))(hono@4.11.9)(react@19.2.3)(typescript@5.9.3)(zod@3.25.76)
+        version: 0.1.112(convex@1.31.7(@clerk/clerk-react@5.60.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3))(hono@4.11.9)(react@19.2.3)(typescript@5.9.3)(zod@4.3.6)
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       lucide-react:
         specifier: ^0.564.0
         version: 0.564.0(react@19.2.3)
+      nanoid:
+        specifier: ^5.1.6
+        version: 5.1.6
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -3209,6 +3212,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@5.1.6:
+    resolution: {integrity: sha512-c7+7RQ+dMB5dPwwCp4ee1/iV/q2P6aK1mTZcfr1BTuVlyW9hJYiMPybJCcnBlQtuSmTIWNeazm/zqNoZSSElBg==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+
   napi-postinstall@0.3.4:
     resolution: {integrity: sha512-PHI5f1O0EP5xJ9gQmFGMS6IZcrVvTjpXjz7Na41gTE7eE2hK11lg04CECCYEEjdc17EV4DO+fkGEtt7TpTaTiQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
@@ -6092,14 +6100,14 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  convex-helpers@0.1.112(convex@1.31.7(@clerk/clerk-react@5.60.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3))(hono@4.11.9)(react@19.2.3)(typescript@5.9.3)(zod@3.25.76):
+  convex-helpers@0.1.112(convex@1.31.7(@clerk/clerk-react@5.60.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3))(hono@4.11.9)(react@19.2.3)(typescript@5.9.3)(zod@4.3.6):
     dependencies:
       convex: 1.31.7(@clerk/clerk-react@5.60.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)
     optionalDependencies:
       hono: 4.11.9
       react: 19.2.3
       typescript: 5.9.3
-      zod: 3.25.76
+      zod: 4.3.6
 
   convex@1.31.7(@clerk/clerk-react@5.60.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3):
     dependencies:
@@ -7309,6 +7317,8 @@ snapshots:
   mute-stream@2.0.0: {}
 
   nanoid@3.3.11: {}
+
+  nanoid@5.1.6: {}
 
   napi-postinstall@0.3.4: {}
 

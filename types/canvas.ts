@@ -17,7 +17,7 @@ export enum LayerType {
   Note,
 }
 
-export type Rectangle = {
+export type RectangleLayer = {
   type: LayerType.Rectangle;
   x: number;
   y: number;
@@ -125,3 +125,10 @@ export enum CanvasMode {
   Resizing,
   Inserting,
 }
+
+export type Layer =
+  | RectangleLayer
+  | NoteLayer
+  | EllipseLayer
+  | PathLayer
+  | TextLayer;
