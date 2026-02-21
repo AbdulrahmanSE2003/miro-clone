@@ -4,6 +4,10 @@ import { LayerType } from "@/types/canvas";
 import { useStorage } from "@liveblocks/react";
 import { memo } from "react";
 import Rectangle from "./Rectangle";
+import Ellipse from "./Ellipse";
+import Text from "./Text";
+import Note from "./Note";
+import Path from "./Path";
 
 type LayerPreviewProps = {
   id: string;
@@ -27,11 +31,48 @@ const LayerPreview = memo(
             selectionColor={selectionColor}
           />
         );
+      case LayerType.Ellipse:
+        return (
+          <Ellipse
+            id={id}
+            layer={layer}
+            onPointerDown={onLayerPointerDown}
+            selectionColor={selectionColor}
+          />
+        );
+      case LayerType.Text:
+        return (
+          <Text
+            id={id}
+            layer={layer}
+            onPointerDown={onLayerPointerDown}
+            selectionColor={selectionColor}
+          />
+        );
+      case LayerType.Note:
+        return (
+          <Note
+            id={id}
+            layer={layer}
+            onPointerDown={onLayerPointerDown}
+            selectionColor={selectionColor}
+          />
+        );
+      case LayerType.Path:
+        return (
+          <Path
+            id={id}
+            layer={layer}
+            onPointerDown={onLayerPointerDown}
+            selectionColor={selectionColor}
+          />
+        );
       default:
-        console.log("unknown type");
+        console.warn("Unknown layer type");
         return null;
     }
   },
 );
+
 LayerPreview.displayName = "LayerPreview";
 export default LayerPreview;

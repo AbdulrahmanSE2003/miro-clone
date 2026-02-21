@@ -20,7 +20,7 @@ type BoardCardProps = {
   imageUrl: string;
   authorId: string;
   authorName: string;
-  createdAt: string;
+  createdAt: number;
   orgId: string;
   isFavorite: boolean;
 };

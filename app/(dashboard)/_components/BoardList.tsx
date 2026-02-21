@@ -7,6 +7,11 @@ import EmptySearch from "./EmptySearch";
 import { api } from "@/convex/_generated/api";
 import BoardCard from "./BoardCard";
 import NewBoardButton from "./NewBoardButton";
+import { Doc } from "@/convex/_generated/dataModel";
+
+// The query returns a union type because of the favorites branch —
+// cast to the correct board type here.
+type BoardWithFavorite = Doc<"boards"> & { isFavorite: boolean };
 
 interface BoardListProps {
   orgId: string;
@@ -15,8 +20,13 @@ interface BoardListProps {
     favorites?: string;
   };
 }
+
 const BoardList = ({ orgId, query }: BoardListProps) => {
-  const data = useQuery(api.boards.get, { orgId, search: query.search });
+  const data = useQuery(api.boards.get, {
+    orgId,
+    search: query.search,
+  }) as BoardWithFavorite[] | undefined;
+
   if (data === undefined)
     return (
       <div>

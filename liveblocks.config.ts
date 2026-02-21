@@ -19,9 +19,14 @@ declare global {
   interface Liveblocks {
     // Each user's Presence, for useMyPresence, useOthers, etc.
     Presence: {
-      // Example, real-time cursor coordinates
+      // Real-time cursor coordinates for other users
       cursor: { x: number; y: number } | null;
+      // Ids of layers the user has selected
       selection: string[];
+      // Live pencil draft points while drawing
+      pencilDraft: [number, number, number][] | null;
+      // Color used for current pencil stroke
+      penColor: { r: number; g: number; b: number } | null;
     };
 
     // The Storage tree for the room, for useMutation, useStorage, etc.
