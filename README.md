@@ -11,7 +11,7 @@ An enterprise-grade visual collaboration tool built to handle complex real-time 
 * **Export Options:** Ability to save your board as an image for sharing.
 
 ### 🛠️ Tech Stack & Tools
-* **Frontend:** Next.js 14 (App Router), Tailwind CSS, Shadcn UI.
+* **Frontend:** Next.js 16 (App Router), Tailwind CSS, Shadcn UI.
 * **Real-time Engine:** Liveblocks (Websockets).
 * **Backend as a Service:** Convex (Reactive Database).
 * **Auth:** Clerk (Social Login & Org Management).
